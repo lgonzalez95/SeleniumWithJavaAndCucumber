@@ -6,16 +6,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
-    @FindBy(name = "username")
-    private WebElement username;
-    @FindBy(name = "password")
+    @FindBy(id = "input-email")
+    private WebElement email;
+    @FindBy(id = "input-password")
     private WebElement password;
-    @FindBy(css = ".orangehrm-login-action button")
+    @FindBy(css = "input[value='Login']")
     private WebElement loginBtn;
-    @FindBy(css = ".oxd-alert--error p")
-    private WebElement loginErrorAlert;
-    @FindBy(css = ".orangehrm-login-slot")
-    private WebElement loginFormContainer;
+    @FindBy(className = "alert-danger")
+    private WebElement loginErrorLabel;
+
+
 
 
     public LoginPage(WebDriver driver) {
@@ -24,16 +24,12 @@ public class LoginPage extends BasePage {
     }
 
     public void performLogin(String username, String password) {
-        type(this.username, username);
+        type(this.email, username);
         type(this.password, password);
         click(loginBtn);
     }
 
     public WebElement getLoginErrorAlert() {
-        return waitForElementToBeVisible(loginErrorAlert);
-    }
-
-    public WebElement getLoginFormContainer() {
-        return waitForElementToBeVisible(loginFormContainer);
+        return waitForElementToBeVisible(loginErrorLabel);
     }
 }

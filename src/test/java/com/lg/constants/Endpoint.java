@@ -1,10 +1,8 @@
 package com.lg.constants;
 
 public enum Endpoint {
-    LOGIN("/auth/login"),
-    ADD_USER("/admin/saveSystemUser"),
-    ADD_EMPLOYEE("/pim/addEmployee"),
-    VIEW_EMPLOYEES("/pim/viewEmployeeList");
+    LOGIN("?route=account/login"),
+    REGISTER("?route=account/register");
 
     public final String url;
 

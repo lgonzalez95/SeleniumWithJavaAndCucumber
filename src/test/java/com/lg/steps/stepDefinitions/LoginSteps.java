@@ -20,17 +20,15 @@ public class LoginSteps {
 
     @When("I login with the username {string} and password {string}")
     public void i_login_with_the__username_and_password(String username, String password) {
-        loginPage.performLogin(username, password);
+        if(username.equals("SYSTEM_USER") && password.equals("SYSTEM_PASSWORD"))
+            loginPage.performLogin(System.getenv("SYSTEM_USER"),System.getenv("SYSTEM_PASSWORD"));
+        else
+            loginPage.performLogin(username, password);
     }
 
     @Then("I get the following login error {string}")
-    public void i_get_the_following_login_error(String errorMessage) {
+    public void i_get_the_following_login_error(String errorMessage) throws InterruptedException {
+        Thread.sleep(5000);
         Assert.assertEquals("Invalid login message", errorMessage, loginPage.getLoginErrorAlert().getText());
-    }
-
-    @Given("I'm logged in the system")
-    public void i_m_logged_in_the_system() {
-        sharedSteps.i_m_on_the_page(Endpoint.LOGIN.toString());
-        i_login_with_the__username_and_password(System.getenv("USER_NAME"),System.getenv("USER_PASSWORD"));
     }
 }
