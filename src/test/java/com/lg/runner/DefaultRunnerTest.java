@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"classpath:features"},
         glue = {"com/lg"},
-        plugin = {"pretty", "html:target/cucumber-html-report"},
+        plugin = {"pretty", "html:target/cucumber-reports/cucumber-html-report.html", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+        monochrome = true,
         tags = "@Debug"
 )
 public class DefaultRunnerTest {
