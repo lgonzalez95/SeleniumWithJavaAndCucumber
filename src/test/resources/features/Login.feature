@@ -1,4 +1,3 @@
-@Debug
 Feature: Login tests
 
   Scenario: Login with invalid credentials

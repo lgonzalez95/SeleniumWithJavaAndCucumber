@@ -8,7 +8,6 @@ import io.cucumber.java.en.Given;
 
 public class SharedSteps {
     BasePage basePage;
-
     public SharedSteps(TestContext testContext) {
         this.basePage = PageFactory.getBasePage(testContext.driver);
     }

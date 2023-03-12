@@ -6,8 +6,8 @@ import com.lg.pages.MyAccountPage;
 import com.lg.pages.LoginPage;
 import com.lg.pages.components.TopNavigationBarComponent;
 import com.lg.pages.sections.LogoutSection;
+import com.lg.pages.sections.SectionFactory;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class MyAccountSteps {
     public MyAccountSteps(TestContext testContext) {
         this.myAccountPage = PageFactory.getMyAccountPage(testContext.driver);
         this.topNavigationBarComponent = PageFactory.getTopNavigationBarComponent(testContext.driver);
-        this.logoutSection = PageFactory.getLogoutSection(testContext.driver);
+        this.logoutSection = SectionFactory.getLogoutSection(testContext.driver);
     }
 
     @Then("My account management options are available on the page")
