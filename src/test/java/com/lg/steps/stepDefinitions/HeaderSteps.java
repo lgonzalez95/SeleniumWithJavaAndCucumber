@@ -35,9 +35,9 @@ public class HeaderSteps {
         });
     }
 
-    @When("I click the checkout button from the header bar")
+    @When("I click the cart button from the header bar")
     public void i_click_the_checkout_button_from_the_header_bar() {
-        headerSection.goToCheckout();
+        headerSection.goToCart();
     }
 
 }

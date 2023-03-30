@@ -14,8 +14,8 @@ public class HeaderSection extends BasePage {
     @Getter
     @FindBy(css = ".input-group-btn button")
     WebElement searchBtn;
-    @FindBy(linkText = "Checkout")
-    WebElement checkoutBtn;
+    @FindBy(linkText = "Shopping Cart")
+    WebElement cartBtn;
 
     public HeaderSection(WebDriver driver) {
         super(driver);
@@ -28,7 +28,7 @@ public class HeaderSection extends BasePage {
         click(searchBtn);
     }
 
-    public void goToCheckout(){
-        click(checkoutBtn);
+    public void goToCart(){
+        click(cartBtn);
     }
 }

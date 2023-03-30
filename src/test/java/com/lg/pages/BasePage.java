@@ -49,4 +49,8 @@ public class BasePage {
     public WebElement waitForElementToClickable(WebElement element) {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
+    public String getCurrentPageUrl(){
+        return driver.getCurrentUrl();
+    }
 }
