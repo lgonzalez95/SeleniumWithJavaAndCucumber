@@ -13,6 +13,7 @@ public class PageFactory {
     private static ProductPage productPage;
     private static ResultsPage resultsPage;
     private static CartPage cartPage;
+    private static CheckoutPage checkoutPage;
 
     public static TopNavigationBarComponent getTopNavigationBarComponent(WebDriver driver) {
         return topNavigationBarComponent == null ? new TopNavigationBarComponent(driver) : topNavigationBarComponent;
@@ -40,5 +41,9 @@ public class PageFactory {
 
     public static CartPage getCartPage(WebDriver driver) {
         return cartPage == null ? new CartPage(driver) : cartPage;
+    }
+
+    public static CheckoutPage getCheckoutPage(WebDriver driver) {
+        return checkoutPage == null ? new CheckoutPage(driver) : checkoutPage;
     }
 }

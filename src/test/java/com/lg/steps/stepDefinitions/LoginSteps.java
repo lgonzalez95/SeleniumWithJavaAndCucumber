@@ -11,11 +11,9 @@ import org.junit.Assert;
 
 public class LoginSteps {
     private final LoginPage loginPage;
-    private final SharedSteps sharedSteps;
 
     public LoginSteps(TestContext testContext) {
         this.loginPage = PageFactory.getLoginPage(testContext.driver);
-        this.sharedSteps = new SharedSteps(testContext);
     }
 
     @When("I login with the username {string} and password {string}")

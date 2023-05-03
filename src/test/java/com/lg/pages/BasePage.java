@@ -1,10 +1,10 @@
 package com.lg.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.lg.utils.ConfigLoader;
 
@@ -52,5 +52,12 @@ public class BasePage {
 
     public String getCurrentPageUrl(){
         return driver.getCurrentUrl();
+    }
+
+    public void selectFromDropDownUsingVisibleText(WebElement selectWebElement, String visibleText) {
+        Select select = new Select(selectWebElement);
+        select.selectByVisibleText(visibleText);
+        WebElement selectedOption = select.getFirstSelectedOption();
+        wait.until(ExpectedConditions.visibilityOf(selectedOption));
     }
 }

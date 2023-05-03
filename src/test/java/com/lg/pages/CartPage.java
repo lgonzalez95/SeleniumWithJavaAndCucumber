@@ -18,14 +18,20 @@ public class CartPage extends BasePage {
     private List<WebElement> cartElementsRows;
     @FindBy(xpath = "//*[text()='Total:']/parent::td//following-sibling::td")
     private WebElement totalAmount;
+    @FindBy(xpath = "//a[text()='Checkout']")
+    private WebElement checkoutBtn;
 
     public CartPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public WebElement getTotalAmount() {
-        return waitForElementToBeVisible(totalAmount);
+    public String getTotalAmount() {
+        return waitForElementToBeVisible(totalAmount).getText();
+    }
+
+    public void proceedToCheckoutPage() {
+        waitForElementToBeVisible(checkoutBtn).click();
     }
 
     public List<Map<String, String>> getCartItemDetails() {

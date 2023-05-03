@@ -30,6 +30,6 @@ public class CartSteps {
 
     @And("The total amount to pay is {string}")
     public void the_total_amount_to_pay_is(String expectedTotal) {
-        Assert.assertEquals(expectedTotal, cartPage.getTotalAmount().getText());
+        Assert.assertEquals(expectedTotal, cartPage.getTotalAmount());
     }
 }
