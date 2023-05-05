@@ -9,7 +9,7 @@ import java.util.Map;
 public class ModelMapperUtility {
     private ModelMapper modelMapper = new ModelMapper();
 
-    public BillingDetails mapBillingDetails(List<Map<String, String>> billingDetailsRows) {
+    public BillingDetails mapBillingOrDeliveryDetails(List<Map<String, String>> billingDetailsRows) {
         return modelMapper.map(billingDetailsRows.get(0), BillingDetails.class);
     }
 }

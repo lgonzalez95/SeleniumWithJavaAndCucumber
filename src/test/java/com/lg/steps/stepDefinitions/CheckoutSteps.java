@@ -30,18 +30,33 @@ public class CheckoutSteps {
 
     @When("I enter the following billing details:")
     public void i_enter_the_following_billing_details(List<Map<String, String>> billingDetailsRows) {
-        BillingDetails billingDetails =  modelMapperUtility.mapBillingDetails(billingDetailsRows);
+        BillingDetails billingDetails = modelMapperUtility.mapBillingOrDeliveryDetails(billingDetailsRows);
         checkoutPage.enterBillingDetails(billingDetails);
     }
 
-    @When("I enter the following delivery details")
-    public void i_enter_the_following_delivery_details() {
+    @When("My billing and delivery addresses {string} the same")
+    public void my_billing_and_delivery_addresses_are_not_the_same(String areTheSameAddresses) {
+        if (areTheSameAddresses.equalsIgnoreCase("are not")) {
+            checkoutPage.useDifferentDeliveryAddress();
+            checkoutPage.continueToDeliveryDetails();
+        } else {
+            checkoutPage.continueToDeliveryDetails();
+        }
+    }
 
+    @When("I enter the following delivery details")
+    public void i_enter_the_following_delivery_details(List<Map<String, String>> deliveryDetails) {
+        BillingDetails billingDetails = modelMapperUtility.mapBillingOrDeliveryDetails(deliveryDetails);
+        checkoutPage.enterDeliveryDetails(billingDetails);
+        checkoutPage.continueToDeliveryMethod();
     }
 
     @When("I set the delivery method to {string}")
-    public void i_set_the_delivery_method_to(String string) {
-
+    public void i_set_the_delivery_method_to(String deliveryMethod) {
+        if (deliveryMethod.equals("Flat Shipping Rate")) {
+            checkoutPage.setShippingDeliveryMethod();
+        }
+        checkoutPage.continueToPayment();
     }
 
     @When("I set the payment method to {string}")

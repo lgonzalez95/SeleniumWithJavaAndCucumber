@@ -20,8 +20,11 @@ Feature: Shopping cart test scenarios
     And I enter the following billing details:
       | firstName | lastName | email            | telephone    | company      | address1         | address2 | city         | postCode | country       | regionOrState |
       | John      | Howard   | jhoward@test.com | +17079700000 | Best Company | 5102 Dowdell Ave | Apt #5   | Rohnert Park | 94928    | United States | California    |
-#    And I enter the following delivery details
-#    And I set the delivery method to "Flat Shipping Rate"
+    And My billing and delivery addresses "are not" the same
+    And I enter the following delivery details
+      | firstName | lastName | company      | address1         | address2 | city         | postCode | country       | regionOrState |
+      | John      | Howard   | Best Company | 5102 Dowdell Ave | Apt #5   | Rohnert Park | 94928    | United States | California    |
+    And I set the delivery method to "Flat Shipping Rate"
 #    And I set the payment method to "Cash On Delivery"
 #    And I accept the payment method terms and conditions
 #    And I confirm the order

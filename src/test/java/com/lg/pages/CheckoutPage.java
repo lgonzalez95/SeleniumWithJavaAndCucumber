@@ -13,29 +13,59 @@ public class CheckoutPage extends BasePage{
     private WebElement guestAccRb;
     @FindBy(id = "button-account")
     private WebElement accountBtn;
+    @FindBy(id = "button-guest")
+    private WebElement billingDetailsContinueBtn;
+    @FindBy(name = "shipping_address")
+    private WebElement deliveryAndBillingAddressAreTheSameChk;
+    @FindBy(id = "button-shipping-method")
+    private WebElement deliveryMethodContinueBtn;
+    @FindBy(id = "shipping_method")
+    private WebElement shippingMethodDeliveryRb;
+    @FindBy(id = "button-guest-shipping")
+    private WebElement deliveryDetailsContinueBtn;
+
 
     @FindBy(id = "input-payment-firstname")
-    private WebElement firstName;
+    private WebElement paymentFirstName;
     @FindBy(id = "input-payment-lastname")
-    private WebElement lastName;
+    private WebElement paymentLastName;
     @FindBy(id = "input-payment-email")
-    private WebElement email;
+    private WebElement paymentEmail;
     @FindBy(id = "input-payment-telephone")
-    private WebElement telephone;
+    private WebElement paymentTelephone;
     @FindBy(id = "input-payment-company")
-    private WebElement company;
+    private WebElement paymentCompany;
     @FindBy(id = "input-payment-address-1")
-    private WebElement address1;
+    private WebElement paymentAddress1;
     @FindBy(id = "input-payment-address-2")
-    private WebElement address2;
+    private WebElement paymentAddress2;
     @FindBy(id = "input-payment-city")
-    private WebElement city;
+    private WebElement paymentCity;
     @FindBy(id = "input-payment-postcode")
-    private WebElement postCode;
+    private WebElement paymentPostCode;
     @FindBy(id = "input-payment-country")
-    private WebElement country;
+    private WebElement paymentCountry;
     @FindBy(id = "input-payment-zone")
-    private WebElement regionOrState;
+    private WebElement paymentRegionOrState;
+
+    @FindBy(id = "input-shipping-firstname")
+    private WebElement shippingFirstName;
+    @FindBy(id = "input-shipping-lastname")
+    private WebElement shippingLastName;
+    @FindBy(id = "input-shipping-company")
+    private WebElement shippingCompany;
+    @FindBy(id = "input-shipping-address-1")
+    private WebElement shippingAddress1;
+    @FindBy(id = "input-shipping-address-2")
+    private WebElement shippingAddress2;
+    @FindBy(id = "input-shipping-city")
+    private WebElement shippingCity;
+    @FindBy(id = "input-shipping-postcode")
+    private WebElement shippingPostCode;
+    @FindBy(id = "input-shipping-country")
+    private WebElement shippingCountry;
+    @FindBy(id = "input-shipping-zone")
+    private WebElement shippingRegionOrState;
 
 
     public void continueCheckoutAsRegisteredAccount(){
@@ -48,18 +78,50 @@ public class CheckoutPage extends BasePage{
         click(accountBtn);
     }
 
+    public void continueToDeliveryDetails(){
+        click(billingDetailsContinueBtn);
+    }
+
+    public void useDifferentDeliveryAddress(){
+        click(deliveryAndBillingAddressAreTheSameChk);
+    }
+
+    public void setShippingDeliveryMethod(){
+        click(shippingMethodDeliveryRb);
+    }
+
+    public void continueToPayment(){
+        click(deliveryMethodContinueBtn);
+    }
+
+    public void continueToDeliveryMethod(){
+        click(deliveryDetailsContinueBtn);
+    }
+
     public void enterBillingDetails(BillingDetails billingDetails){
-        type(firstName, billingDetails.getFirstName());
-        type(lastName, billingDetails.getLastName());
-        type(email, billingDetails.getEmail());
-        type(telephone, billingDetails.getTelephone());
-        type(company, billingDetails.getCompany());
-        type(address1, billingDetails.getAddress1());
-        type(address2, billingDetails.getAddress2());
-        type(city, billingDetails.getCity());
-        type(postCode, billingDetails.getPostCode());
-        selectFromDropDownUsingVisibleText(country, billingDetails.getCountry());
-        selectFromDropDownUsingVisibleText(regionOrState, billingDetails.getRegion());
+        type(paymentFirstName, billingDetails.getFirstName());
+        type(paymentLastName, billingDetails.getLastName());
+        type(paymentEmail, billingDetails.getEmail());
+        type(paymentTelephone, billingDetails.getTelephone());
+        type(paymentCompany, billingDetails.getCompany());
+        type(paymentAddress1, billingDetails.getAddress1());
+        type(paymentAddress2, billingDetails.getAddress2());
+        type(paymentCity, billingDetails.getCity());
+        type(paymentPostCode, billingDetails.getPostCode());
+        selectFromDropDownUsingVisibleText(paymentCountry, billingDetails.getCountry());
+        selectFromDropDownUsingVisibleText(paymentRegionOrState, billingDetails.getRegion());
+    }
+
+    public void enterDeliveryDetails(BillingDetails billingDetails){
+        type(shippingFirstName, billingDetails.getFirstName());
+        type(shippingLastName, billingDetails.getLastName());
+        type(shippingCompany, billingDetails.getCompany());
+        type(shippingAddress1, billingDetails.getAddress1());
+        type(shippingAddress2, billingDetails.getAddress2());
+        type(shippingCity, billingDetails.getCity());
+        type(shippingPostCode, billingDetails.getPostCode());
+        selectFromDropDownUsingVisibleText(shippingCountry, billingDetails.getCountry());
+        selectFromDropDownUsingVisibleText(shippingRegionOrState, billingDetails.getRegion());
     }
 
     public CheckoutPage(WebDriver driver) {
