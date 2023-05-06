@@ -63,7 +63,7 @@ public class CheckoutSteps {
     @When("I set the payment method to {string}")
     public void i_set_the_payment_method_to(String paymentMethod) {
         if (paymentMethod.equals("Cash On Delivery")) {
-            checkoutPage.setShippingDeliveryMethod();
+            checkoutPage.setPaymentMethod();
         }
         checkoutPage.continueToConfirmOrder();
     }
