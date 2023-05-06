@@ -19,11 +19,18 @@ public class CheckoutPage extends BasePage{
     private WebElement deliveryAndBillingAddressAreTheSameChk;
     @FindBy(id = "button-shipping-method")
     private WebElement deliveryMethodContinueBtn;
-    @FindBy(id = "shipping_method")
+    @FindBy(name = "shipping_method")
     private WebElement shippingMethodDeliveryRb;
+    @FindBy(name = "payment_method")
+    private WebElement paymentMethodRb;
+    @FindBy(name = "agree")
+    private WebElement agreeOnTermsAndConditionsChk;
+    @FindBy(id = "button-payment-method")
+    private WebElement continueToConfirmOrderBtn;
     @FindBy(id = "button-guest-shipping")
     private WebElement deliveryDetailsContinueBtn;
-
+    @FindBy(id = "button-confirm")
+    private WebElement confirmOrderBtn;
 
     @FindBy(id = "input-payment-firstname")
     private WebElement paymentFirstName;
@@ -90,8 +97,21 @@ public class CheckoutPage extends BasePage{
         click(shippingMethodDeliveryRb);
     }
 
+    public void setPaymentMethod(){
+        click(paymentMethodRb);
+    }
+
     public void continueToPayment(){
         click(deliveryMethodContinueBtn);
+    }
+
+    public void continueToConfirmOrder(){
+        click(agreeOnTermsAndConditionsChk);
+        click(continueToConfirmOrderBtn);
+    }
+
+    public void confirmAndPlacerOrder(){
+        click(confirmOrderBtn);
     }
 
     public void continueToDeliveryMethod(){
