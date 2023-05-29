@@ -1,10 +1,7 @@
 package com.lg.models;
 
 public class BillingDetails {
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String telephone;
+    private PersonalDetails personalDetails;
     private String company;
     private String address1;
     private String address2;
@@ -13,36 +10,12 @@ public class BillingDetails {
     private String country;
     private String region;
 
-    public String getFirstName() {
-        return firstName;
+    public PersonalDetails getPersonalDetails() {
+        return personalDetails;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setPersonalDetails(PersonalDetails personalDetails) {
+        this.personalDetails = personalDetails;
     }
 
     public String getCompany() {

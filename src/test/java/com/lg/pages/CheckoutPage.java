@@ -119,10 +119,10 @@ public class CheckoutPage extends BasePage{
     }
 
     public void enterBillingDetails(BillingDetails billingDetails){
-        type(paymentFirstName, billingDetails.getFirstName());
-        type(paymentLastName, billingDetails.getLastName());
-        type(paymentEmail, billingDetails.getEmail());
-        type(paymentTelephone, billingDetails.getTelephone());
+        type(paymentFirstName, billingDetails.getPersonalDetails().getFirstName());
+        type(paymentLastName, billingDetails.getPersonalDetails().getLastName());
+        type(paymentEmail, billingDetails.getPersonalDetails().getEmail());
+        type(paymentTelephone, billingDetails.getPersonalDetails().getTelephone());
         type(paymentCompany, billingDetails.getCompany());
         type(paymentAddress1, billingDetails.getAddress1());
         type(paymentAddress2, billingDetails.getAddress2());
@@ -133,8 +133,8 @@ public class CheckoutPage extends BasePage{
     }
 
     public void enterDeliveryDetails(BillingDetails billingDetails){
-        type(shippingFirstName, billingDetails.getFirstName());
-        type(shippingLastName, billingDetails.getLastName());
+        type(shippingFirstName, billingDetails.getPersonalDetails().getFirstName());
+        type(shippingLastName, billingDetails.getPersonalDetails().getLastName());
         type(shippingCompany, billingDetails.getCompany());
         type(shippingAddress1, billingDetails.getAddress1());
         type(shippingAddress2, billingDetails.getAddress2());

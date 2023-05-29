@@ -1,4 +1,3 @@
-@Debug
 Feature: Shopping cart test scenarios
 
   Scenario: Ability to checkout products as a guest customer

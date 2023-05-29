@@ -15,9 +15,6 @@ public class LoginPage extends BasePage {
     @FindBy(className = "alert-danger")
     private WebElement loginErrorLabel;
 
-
-
-
     public LoginPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
