@@ -23,6 +23,7 @@ pipeline {
 
   post {
     always {
+      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'target/cucumber-reports', reportFiles: 'extent-report.html', reportName: 'HTML Report', reportTitles: ''])
       deleteDir()
     }
   }
