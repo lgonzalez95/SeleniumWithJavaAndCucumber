@@ -1,4 +1,3 @@
-@Debug
 Feature: Register account tests
 
   Scenario: Validation messages are displayed when no values are entered
